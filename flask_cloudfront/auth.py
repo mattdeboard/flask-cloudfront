@@ -17,8 +17,9 @@ class CloudFrontRedirect(object):
             # If the URL string is unicode, there seems to be a misfire between
             # the digital signing of the policy and the URL as entered into the
             # bar, at least in Chrome 22.0.1229.79.
-            self.location = str(location)
+            location = str(location)
 
+        self.location = location
         signed_url = get_canned_policy_url(self.location, **cf_config)
         resp = make_response(redirect(signed_url, code))
         self.redirect = self.headers(resp, headers or {})

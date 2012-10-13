@@ -29,7 +29,7 @@ def _create_url(url, encoded_signature, key_pair_id, expires):
         'Key-Pair-Id': key_pair_id
     }
     # Coerce our URL into a ParseResult namedtuple.
-    url = list(urlparse(url))
+    url = urlparse.urlparse(url)
     # Using this clunky-looking way because the 'parse_qs' method returns a
     # a dict that doesn't URL encode well.
     query = dict(urlparse.parse_qsl(url.query))
@@ -37,6 +37,7 @@ def _create_url(url, encoded_signature, key_pair_id, expires):
     # have come in the original request.
     query.update(params)
     query = urlencode(query)
+    url = list(url)
     url[4] = query
     return urlparse.urlunparse(url)
 
