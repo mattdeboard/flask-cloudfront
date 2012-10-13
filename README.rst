@@ -9,6 +9,12 @@ About
 
 This project was born out of a need I had for a lightweight authorization server that could sit between a CloudFront distribution and the `Courseload <http://courseload.com>`_ API client. It is an expression of a strategy leveraging CloudFront's `signed URL <http://docs.amazonwebservices.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html>`_ feature for serving private content combined with an authorize-every-request constraint. I could not find any good front-to-back solutions out there so I made one myself.
 
+In short, I need an authorization layer sitting between the End User and the Edge Location in this diagram:
+
+.. image:: http://ubuntuone.com/2ePlghjXJsMuBgLjdV3Yjy
+
+Flask-CloudFront does that.
+
 Usage
 =====
 
