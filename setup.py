@@ -21,8 +21,11 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
+        'Flask-Testing',
         'requests'
     ],
+    tests_require='nose',
+    test_suite='nose.collector',
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
