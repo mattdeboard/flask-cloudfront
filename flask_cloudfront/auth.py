@@ -8,9 +8,10 @@ class CloudFrontRedirect(object):
         if not location:
             try:
                 self.location = current_app.config['CLOUDFRONT_DOMAIN']
-            except KeyError as e:
-                raise e("You must either set the 'CLOUDFRONT_DOMAIN' constant "
-                        "or provide a value for the 'location' param.")
+            except KeyError:
+                raise KeyError("You must either set the 'CLOUDFRONT_DOMAIN' "
+                               "constant or provide a value for the 'location' "
+                               "param.")
 
         if isinstance(location, unicode):
             # If the URL string is unicode, there seems to be a misfire between
