@@ -34,8 +34,8 @@ class CloudFrontRedirect(object):
         """Override this method with your own authorization logic."""
         raise NotImplementedError
 
-    def go(self, good_codes=None, bad_codes=None, *args, **kwargs):
-        good_codes = good_codes or [200, 204]
+    def go(self, *args, **kwargs):
+        good_codes = kwargs.get('good_codes') or [200, 204]
         auth_status = self.authorize(*args, **kwargs)
 
         if int(auth_status) in good_codes:
