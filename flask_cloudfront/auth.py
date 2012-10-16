@@ -26,7 +26,7 @@ class CloudFrontRedirect(object):
 
     def headers(self, resp, headers):
         for header, value in headers.items():
-            resp[key] = value
+            resp[header] = value
 
         return resp
 
