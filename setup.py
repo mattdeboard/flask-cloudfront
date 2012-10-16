@@ -15,10 +15,11 @@ setup(
     author_email='matt.deboard@gmail.com',
     description='Serve data securely from CloudFront.',
     long_description=__doc__,
-    py_modules=['flask_cloudfront'],
+    packages=['flask_cloudfront'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
+    url='http://courseload.com',
     install_requires=[
         'Flask',
         'Flask-Testing',
