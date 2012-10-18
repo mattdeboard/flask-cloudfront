@@ -66,7 +66,7 @@ def get_canned_policy_url(url, priv_key_string, key_pair_id, expires):
     parameters appended.
     
     """
-    expires = int(time.time()) + 300
+    expires = _time(expires)
     # We manually construct this policy string to ensure formatting matches
     # signature.
     canned_policy = ('{"Statement":[{"Resource":"%(url)s","Condition":'
@@ -79,3 +79,6 @@ def get_canned_policy_url(url, priv_key_string, key_pair_id, expires):
     signed_url = _create_url(url, encoded_signature, key_pair_id, expires);
     return signed_url
 
+def _time(expires):
+    now = datetime.datetime.utcnow().utctimetuple()
+    return int(time.mktime(now)) + expires
